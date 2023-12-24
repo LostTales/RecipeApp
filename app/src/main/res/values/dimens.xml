@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="linear_layout_btm_margin_horizontal_dim">16dp</dimen>
+    <dimen name="linear_layout_btm_margin_bottom_dim">8dp</dimen>
+    <dimen name="btm_layout_width_dim">0dp</dimen>
+    <dimen name="btm_layout_margin_dim">2dp</dimen>
+</resources>
