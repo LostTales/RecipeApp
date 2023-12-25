@@ -4,15 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/main_background_color"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayoutButtons"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginHorizontal="@dimen/linear_layout_btm_margin_horizontal_dim"
+        android:layout_marginBottom="@dimen/linear_layout_btm_margin_bottom_dim"
+        android:gravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btnCategories"
+            style="@style/StyleNavButton"
+            android:layout_width="@dimen/btm_layout_width_dim"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/btm_layout_margin_dim"
+            android:layout_weight="@integer/btm_layout_weight_int"
+            android:backgroundTint="@color/button_categories_basic_color"
+            android:gravity="center"
+            android:text="@string/category_button" />
+
+        <Button
+            android:id="@+id/btnFavourites"
+            style="@style/StyleNavButton"
+            android:layout_width="@dimen/btm_layout_width_dim"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/btm_layout_margin_dim"
+            android:layout_weight="@integer/btm_layout_weight_int"
+            android:backgroundTint="@color/button_favorites_basic_color"
+            android:gravity="center"
+            android:text="@string/favorites_button"
+            app:icon="@drawable/ic_heart"
+            app:iconGravity="textEnd" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
