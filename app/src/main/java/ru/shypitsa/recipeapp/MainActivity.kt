@@ -16,14 +16,16 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        replaceFragment(CategoriesListFragment())
-
+        if (savedInstanceState == null) {
+            replaceFragment(CategoriesListFragment())
+        }
     }
 
     private fun replaceFragment(fragment: Fragment) {
-        val fragmentManager = supportFragmentManager
-        fragmentManager.commit {
-            add(R.id.mainContainer, fragment)
+        supportFragmentManager.commit {
+            replace(R.id.mainContainer, fragment)
+            setReorderingAllowed(true)
+            addToBackStack("fragmentTitleCategories")
         }
     }
 }
