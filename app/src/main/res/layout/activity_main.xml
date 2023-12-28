@@ -11,8 +11,8 @@
         android:id="@+id/linearLayoutButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/linear_layout_btm_margin_horizontal_dim"
-        android:layout_marginBottom="@dimen/linear_layout_btm_margin_bottom_dim"
+        android:layout_marginHorizontal="@dimen/linear_layout_btn_margin_horizontal_dim"
+        android:layout_marginBottom="@dimen/linear_layout_btn_margin_bottom_dim"
         android:gravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,9 +21,9 @@
         <Button
             android:id="@+id/btnCategories"
             style="@style/StyleNavButton"
-            android:layout_width="@dimen/btm_layout_width_dim"
+            android:layout_width="@dimen/btn_layout_width_dim"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/btm_layout_margin_dim"
+            android:layout_marginEnd="@dimen/btn_layout_margin_dim"
             android:layout_weight="@integer/btm_layout_weight_int"
             android:backgroundTint="@color/button_categories_basic_color"
             android:gravity="center"
@@ -32,9 +32,9 @@
         <Button
             android:id="@+id/btnFavourites"
             style="@style/StyleNavButton"
-            android:layout_width="@dimen/btm_layout_width_dim"
+            android:layout_width="@dimen/btn_layout_width_dim"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/btm_layout_margin_dim"
+            android:layout_marginStart="@dimen/btn_layout_margin_dim"
             android:layout_weight="@integer/btm_layout_weight_int"
             android:backgroundTint="@color/button_favorites_basic_color"
             android:gravity="center"
@@ -43,5 +43,19 @@
             app:iconGravity="textEnd" />
 
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutButtons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
