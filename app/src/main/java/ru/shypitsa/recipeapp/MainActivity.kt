@@ -4,12 +4,14 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import ru.shypitsa.recipeapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private var _binding: ActivityMainBinding? = null
     private val binding
-        get() = _binding ?: throw IllegalStateException("Binding must not be null")
+        get() = _binding
+            ?: throw IllegalStateException("Binding for ActivityMainBinding must not be null")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,13 +19,42 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         if (savedInstanceState == null) {
-            replaceFragment(CategoriesListFragment())
+
+            binding.btnCategories.setOnClickListener {
+                showCategories()
+            }
+
+            binding.btnFavourites.setOnClickListener {
+                showFavourites()
+            }
+        }
+
+    }
+
+    private fun showFavourites() {
+        supportFragmentManager.popBackStack()
+        supportFragmentManager.commit {
+            replace<FavoritesFragment>(R.id.mainContainer)
+            setReorderingAllowed(true)
+            addToBackStack(null)
+
+        }
+
+    }
+
+    private fun showCategories() {
+        supportFragmentManager.popBackStack()
+        supportFragmentManager.commit {
+            replace<CategoriesListFragment>(R.id.mainContainer)
+            setReorderingAllowed(true)
+            addToBackStack(null)
         }
     }
 
     private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.popBackStack()
         supportFragmentManager.commit {
-            replace(R.id.mainContainer, fragment)
+            //replace<fragment>(R.id.mainContainer)
             setReorderingAllowed(true)
             addToBackStack(null)
         }
