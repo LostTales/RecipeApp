@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">RecipeApp</string>
-    <string name="category_button">categories</string>
-    <string name="favorites_button">favourites</string>
+    <string name="text_category">categories</string>
+    <string name="text_favorites">favourites</string>
 </resources>

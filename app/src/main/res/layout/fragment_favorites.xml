@@ -7,7 +7,6 @@
     android:background="@color/main_background_color"
     tools:context=".FavoritesFragment">
 
-
     <TextView
         android:id="@+id/tvTitleOfTheFavoritesSection"
         style="@style/StyleTitle20"
@@ -17,7 +16,7 @@
         android:layout_marginTop="@dimen/tv_title_layout_margin_top_dim"
         android:layout_marginEnd="@dimen/tv_title_layout_margin_end_dim"
         android:background="@drawable/shape_and_color_of_title"
-        android:text="@string/favorites_button"
+        android:text="@string/text_favorites"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

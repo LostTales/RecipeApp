@@ -2,7 +2,6 @@ package ru.shypitsa.recipeapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import ru.shypitsa.recipeapp.databinding.ActivityMainBinding
@@ -19,6 +18,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         if (savedInstanceState == null) {
+
+            showCategories()
 
             binding.btnCategories.setOnClickListener {
                 showCategories()
@@ -51,12 +52,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager.popBackStack()
-        supportFragmentManager.commit {
-            //replace<fragment>(R.id.mainContainer)
-            setReorderingAllowed(true)
-            addToBackStack(null)
-        }
-    }
 }
