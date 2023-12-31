@@ -27,7 +27,7 @@
             android:layout_weight="@integer/btm_layout_weight_int"
             android:backgroundTint="@color/button_categories_basic_color"
             android:gravity="center"
-            android:text="@string/category_button" />
+            android:text="@string/text_category" />
 
         <Button
             android:id="@+id/btnFavourites"
@@ -38,7 +38,7 @@
             android:layout_weight="@integer/btm_layout_weight_int"
             android:backgroundTint="@color/button_favorites_basic_color"
             android:gravity="center"
-            android:text="@string/favorites_button"
+            android:text="@string/text_favorites"
             app:icon="@drawable/ic_heart"
             app:iconGravity="textEnd" />
 
