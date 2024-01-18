@@ -1,24 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_background_color"
+    android:orientation="vertical"
     tools:context=".CategoriesListFragment">
 
-    <TextView
-        android:id="@+id/tvTitleOfTheCategorySection"
-        style="@style/StyleTitle20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/tv_title_layout_margin_start_dim"
-        android:layout_marginTop="@dimen/tv_title_layout_margin_top_dim"
-        android:layout_marginEnd="@dimen/tv_title_layout_margin_end_dim"
-        android:background="@drawable/shape_and_color_of_title"
-        android:text="@string/text_category"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintlayoutTitleCategory"
+        android:layout_width="match_parent"
+        android:layout_height="224dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/ivTitleCategory"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/image_title_category"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bcg_categories"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitleOfTheCategorySection"
+            style="@style/StyleTitle20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tv_title_layout_margin_start_dim"
+            android:layout_marginTop="@dimen/tv_title_layout_margin_top_dim"
+            android:layout_marginEnd="@dimen/tv_title_layout_margin_end_dim"
+            android:background="@drawable/shape_and_color_of_title"
+            android:text="@string/text_category"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCategories"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/rv_and_cv_item_categories_margin_horizontal_dim"
+        android:layout_marginTop="@dimen/rv_categories_layout_margin_top_dim"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="@integer/rv_span_count_int"
+        tools:itemCount="6"
+        tools:listitem="@layout/item_category" />
+
+</LinearLayout>

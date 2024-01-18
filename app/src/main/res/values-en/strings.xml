@@ -3,4 +3,6 @@
     <string name="app_name">RecipeApp</string>
     <string name="text_category">categories</string>
     <string name="text_favorites">favourites</string>
+    <string name="image_title_category">image title of the category section</string>
+    <string name="item_image_in_the_categories_section">item image in the categories section</string>
 </resources>

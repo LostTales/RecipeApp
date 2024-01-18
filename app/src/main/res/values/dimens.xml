@@ -7,4 +7,8 @@
     <dimen name="tv_title_layout_margin_start_dim">16dp</dimen>
     <dimen name="tv_title_layout_margin_top_dim">164dp</dimen>
     <dimen name="tv_title_layout_margin_end_dim">195dp</dimen>
+    <dimen name="rv_categories_layout_margin_top_dim">16dp</dimen>
+    <dimen name="rv_and_cv_item_categories_margin_horizontal_dim">8dp</dimen>
+    <dimen name="cv_item_category_card_corner_radius_dim">8dp</dimen>
+    <dimen name="tv_name_and_description_item_category_layout_margin_dim">8dp</dimen>
 </resources>
