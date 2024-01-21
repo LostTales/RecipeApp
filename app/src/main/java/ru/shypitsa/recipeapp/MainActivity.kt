@@ -1,5 +1,6 @@
 package ru.shypitsa.recipeapp
 
+import android.content.res.AssetManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
