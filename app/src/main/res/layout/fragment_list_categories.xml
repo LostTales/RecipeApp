@@ -9,9 +9,9 @@
     tools:context=".CategoriesListFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintlayoutTitleCategory"
+        android:id="@+id/constraintLayoutTitleCategory"
         android:layout_width="match_parent"
-        android:layout_height="224dp">
+        android:layout_height="@dimen/constraint_layout_categories_and_recipes_title_layout_height_dim">
 
         <ImageView
             android:id="@+id/ivTitleCategory"

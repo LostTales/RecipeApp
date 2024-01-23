@@ -13,6 +13,16 @@ class CategoriesListAdapter(
     private val fragment: CategoriesListFragment,
 ) : RecyclerView.Adapter<CategoriesListAdapter.CategoryHolder>() {
 
+    private var itemClickListener: OnItemClickListener? = null
+
+    interface OnItemClickListener {
+        fun onItemClick()
+    }
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        itemClickListener = listener
+    }
+
     class CategoryHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val binding = ItemCategoryBinding.bind(itemView)
         val cvCategoryItem = binding.cvCategoryItem
@@ -41,6 +51,10 @@ class CategoriesListAdapter(
             holder.ivCategoryImage.setImageDrawable(drawable)
         } catch (e: Exception) {
             Log.e("error", e.printStackTrace().toString())
+        }
+
+        holder.cvCategoryItem.setOnClickListener {
+            itemClickListener?.onItemClick()
         }
     }
 
