@@ -43,8 +43,8 @@ class CategoriesListFragment : Fragment() {
     }
 
     fun openRecipesByCategoryId() {
-        fragmentManager?.popBackStack()
-        fragmentManager?.commit {
+        parentFragmentManager.popBackStack()
+        parentFragmentManager.commit {
             replace<RecipesListFragment>(R.id.mainContainer)
             setReorderingAllowed(true)
             addToBackStack(null)

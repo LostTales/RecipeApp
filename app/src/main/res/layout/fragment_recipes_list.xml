@@ -28,14 +28,11 @@
         <TextView
             android:id="@+id/tvTitleRecipes"
             style="@style/StyleRecipeTitle20"
-            android:layout_width="242dp"
+            android:layout_width="@dimen/tv_recipe_title_layout_width_dim"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="102dp"
-            android:layout_marginBottom="16dp"
+            android:layout_margin="@dimen/tv_category_and_recipe_title_layout_margin_dim"
             android:background="@drawable/shape_and_color_of_title"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="бургер с грибами и сыром" />
 
