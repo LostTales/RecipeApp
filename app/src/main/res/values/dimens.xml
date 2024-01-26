@@ -2,12 +2,7 @@
 <resources>
     <dimen name="linear_layout_btn_margin_horizontal_dim">16dp</dimen>
     <dimen name="linear_layout_btn_margin_bottom_dim">8dp</dimen>
-    <dimen name="btn_layout_width_dim">0dp</dimen>
     <dimen name="btn_layout_margin_dim">2dp</dimen>
-    <dimen name="tv_title_layout_margin_dim">16dp</dimen>
-    <dimen name="rv_categories_layout_margin_top_dim">16dp</dimen>
-    <dimen name="rv_and_cv_item_categories_margin_horizontal_dim">8dp</dimen>
-    <dimen name="cv_item_category_card_corner_radius_dim">8dp</dimen>
-    <dimen name="tv_name_and_description_item_category_layout_margin_dim">8dp</dimen>
     <dimen name="iv_item_category_image_layout_height_dim">130dp</dimen>
+    <dimen name="constraint_layout_categories_and_recipes_title_layout_height_dim">224dp</dimen>
 </resources>

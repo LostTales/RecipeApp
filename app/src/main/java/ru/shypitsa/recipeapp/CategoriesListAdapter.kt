@@ -29,6 +29,7 @@ class CategoriesListAdapter(
         val tvCategoryName = binding.tvItemCategoryName
         val tvCategoryDescription = binding.tvItemCategoryDescription
         val ivCategoryImage = binding.ivItemCategoryImage
+        val contentDescription = binding.ivItemCategoryImage
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryHolder {
@@ -44,6 +45,7 @@ class CategoriesListAdapter(
     override fun onBindViewHolder(holder: CategoryHolder, position: Int) {
         holder.tvCategoryName.text = dataSet[position].title
         holder.tvCategoryDescription.text = dataSet[position].description
+        holder.contentDescription.contentDescription = dataSet[position].title
 
         try {
             val inputStream = fragment.context?.assets?.open(dataSet[position].imageUrl)

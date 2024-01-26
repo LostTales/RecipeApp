@@ -11,7 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintlayoutTitleRecipes"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/constraint_layout_categories_and_recipes_title_layout_height_dim">
 
         <ImageView
             android:id="@+id/ivTitleRecipes"
@@ -30,12 +30,10 @@
             style="@style/StyleRecipeTitle20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/tv_title_layout_margin_dim"
             android:background="@drawable/shape_and_color_of_title"
             app:layout_constrainedWidth="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="бургер с грибами и сыром" />
 

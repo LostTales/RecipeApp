@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cvCategoryItem"
+    style="@style/StyleCardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="@dimen/rv_and_cv_item_categories_margin_horizontal_dim"
-    android:layout_marginBottom="16dp"
-    android:clickable="true"
-    android:foreground="?android:attr/selectableItemBackground"
-    app:cardBackgroundColor="@color/main_background_color"
-    app:cardCornerRadius="@dimen/cv_item_category_card_corner_radius_dim">
+    android:clickable="true">
 
     <LinearLayout
         android:id="@+id/linearLayoutItemCategory"
@@ -32,8 +27,6 @@
             style="@style/StyleItemCategory14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/tv_name_and_description_item_category_layout_margin_dim"
-            android:layout_marginTop="@dimen/tv_name_and_description_item_category_layout_margin_dim"
             tools:text="БУРГЕРЫ" />
 
         <TextView
@@ -41,7 +34,6 @@
             style="@style/StyleItemCategoryDescription12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/tv_name_and_description_item_category_layout_margin_dim"
             tools:text="Рецепты всех популярных видов бургеров" />
 
     </LinearLayout>

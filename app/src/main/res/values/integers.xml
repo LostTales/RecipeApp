@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="btm_layout_weight_int">1</integer>
     <integer name="rv_span_count_int">2</integer>
 </resources>
