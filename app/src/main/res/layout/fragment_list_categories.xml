@@ -9,9 +9,9 @@
     tools:context=".CategoriesListFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintlayoutTitleCategory"
+        android:id="@+id/constraintLayoutTitleCategory"
         android:layout_width="match_parent"
-        android:layout_height="224dp">
+        android:layout_height="@dimen/constraint_layout_categories_and_recipes_title_layout_height_dim">
 
         <ImageView
             android:id="@+id/ivTitleCategory"
@@ -30,25 +30,20 @@
             style="@style/StyleTitle20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/tv_title_layout_margin_start_dim"
-            android:layout_marginTop="@dimen/tv_title_layout_margin_top_dim"
-            android:layout_marginEnd="@dimen/tv_title_layout_margin_end_dim"
             android:background="@drawable/shape_and_color_of_title"
             android:text="@string/text_category"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCategories"
+        style="@style/StyleRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginHorizontal="@dimen/rv_and_cv_item_categories_margin_horizontal_dim"
-        android:layout_marginTop="@dimen/rv_categories_layout_margin_top_dim"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="@integer/rv_span_count_int"
         tools:itemCount="6"
         tools:listitem="@layout/item_category" />
 

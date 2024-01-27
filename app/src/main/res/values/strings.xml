@@ -3,5 +3,9 @@
     <string name="text_category">категории</string>
     <string name="text_favorites">избранное</string>
     <string name="image_title_category">картинка заголовка раздела категории</string>
+
     <string name="item_image_in_the_categories_section">изображение товара в разделе категории</string>
+
+    <string name="recipe_header_picture">картинка заголовка рецепта</string>
+    <string name="favorites_section_header_image">картинка заголовка раздела избранное</string>
 </resources>

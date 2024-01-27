@@ -13,12 +13,23 @@ class CategoriesListAdapter(
     private val fragment: CategoriesListFragment,
 ) : RecyclerView.Adapter<CategoriesListAdapter.CategoryHolder>() {
 
+    private var itemClickListener: OnItemClickListener? = null
+
+    interface OnItemClickListener {
+        fun onItemClick()
+    }
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        itemClickListener = listener
+    }
+
     class CategoryHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val binding = ItemCategoryBinding.bind(itemView)
         val cvCategoryItem = binding.cvCategoryItem
         val tvCategoryName = binding.tvItemCategoryName
         val tvCategoryDescription = binding.tvItemCategoryDescription
         val ivCategoryImage = binding.ivItemCategoryImage
+        val contentDescription = binding.ivItemCategoryImage
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryHolder {
@@ -34,6 +45,7 @@ class CategoriesListAdapter(
     override fun onBindViewHolder(holder: CategoryHolder, position: Int) {
         holder.tvCategoryName.text = dataSet[position].title
         holder.tvCategoryDescription.text = dataSet[position].description
+        holder.contentDescription.contentDescription = dataSet[position].title
 
         try {
             val inputStream = fragment.context?.assets?.open(dataSet[position].imageUrl)
@@ -41,6 +53,10 @@ class CategoriesListAdapter(
             holder.ivCategoryImage.setImageDrawable(drawable)
         } catch (e: Exception) {
             Log.e("error", e.printStackTrace().toString())
+        }
+
+        holder.cvCategoryItem.setOnClickListener {
+            itemClickListener?.onItemClick()
         }
     }
 

@@ -12,6 +12,8 @@
         <item name="android:textAppearance">@style/StyleTitle14</item>
         <item name="android:paddingVertical">10dp</item>
         <item name="cornerRadius">8dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
     </style>
 
     <style name="StyleTitle20" parent="StyleTitle14">
@@ -19,16 +21,41 @@
         <item name="android:textColor">@color/title_text_color</item>
         <item name="android:gravity">center</item>
         <item name="android:padding">10dp</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="layout_constraintHorizontal_bias">0.0</item>
     </style>
 
     <style name="StyleItemCategory14" parent="StyleTitle14">
         <item name="android:textColor">@color/title_text_color</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
     </style>
 
     <style name="StyleItemCategoryDescription12" parent="TextAppearance.AppCompat">
         <item name="android:textSize">12sp</item>
         <item name="fontFamily">@font/montserrat_medium</item>
         <item name="android:textColor">@color/tv_item_category_description</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <style name="StyleRecipeTitle20" parent="StyleTitle20">
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="StyleCardView" parent="TextAppearance.AppCompat">
+        <item name="android:layout_marginHorizontal">8dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="cardBackgroundColor">@color/main_background_color</item>
+        <item name="cardCornerRadius">8dp</item>
+    </style>
+
+    <style name="StyleRecyclerView" parent="TextAppearance.AppCompat">
+        <item name="android:layout_marginHorizontal">8dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="cardCornerRadius">8dp</item>
+        <item name="layoutManager">androidx.recyclerview.widget.GridLayoutManager</item>
+        <item name="spanCount">2</item>
     </style>
 
 </resources>

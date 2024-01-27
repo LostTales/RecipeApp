@@ -21,10 +21,8 @@
         <Button
             android:id="@+id/btnCategories"
             style="@style/StyleNavButton"
-            android:layout_width="@dimen/btn_layout_width_dim"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/btn_layout_margin_dim"
-            android:layout_weight="@integer/btm_layout_weight_int"
             android:backgroundTint="@color/btn_categories_basic_color"
             android:gravity="center"
             android:text="@string/text_category" />
@@ -32,10 +30,8 @@
         <Button
             android:id="@+id/btnFavourites"
             style="@style/StyleNavButton"
-            android:layout_width="@dimen/btn_layout_width_dim"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/btn_layout_margin_dim"
-            android:layout_weight="@integer/btm_layout_weight_int"
             android:backgroundTint="@color/btn_favorites_basic_color"
             android:gravity="center"
             android:text="@string/text_favorites"
