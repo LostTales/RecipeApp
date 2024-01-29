@@ -16,7 +16,7 @@ class CategoriesListAdapter(
     private var itemClickListener: OnItemClickListener? = null
 
     interface OnItemClickListener {
-        fun onItemClick()
+        fun onItemClick(categoryId: Int)
     }
 
     fun setOnItemClickListener(listener: OnItemClickListener) {
@@ -45,7 +45,8 @@ class CategoriesListAdapter(
     override fun onBindViewHolder(holder: CategoryHolder, position: Int) {
         holder.tvCategoryName.text = dataSet[position].title
         holder.tvCategoryDescription.text = dataSet[position].description
-        holder.contentDescription.contentDescription = dataSet[position].title
+        holder.contentDescription.contentDescription =
+            START_OF_TEXT_FOR_CARD_CATEGORY_CONTENT_DESCRIPTION + dataSet[position].title
 
         try {
             val inputStream = fragment.context?.assets?.open(dataSet[position].imageUrl)
@@ -56,8 +57,11 @@ class CategoriesListAdapter(
         }
 
         holder.cvCategoryItem.setOnClickListener {
-            itemClickListener?.onItemClick()
+            itemClickListener?.onItemClick(dataSet[position].id)
         }
     }
 
 }
+
+const val START_OF_TEXT_FOR_CARD_CATEGORY_CONTENT_DESCRIPTION =
+    "Изображение для карточки категории "
