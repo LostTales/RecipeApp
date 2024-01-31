@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import ru.shypitsa.recipeapp.databinding.FragmentRecipesListBinding
@@ -27,12 +28,16 @@ class RecipesListFragment : Fragment() {
         return binding.root
 
         val tv: TextView = binding.tvTitleRecipes
-        categoryName = arguments?.getString("ARG_CATEGORY_NAME")
+        val iv: ImageView = binding.ivTitleRecipes
+
+        arguments?.let {
+            categoryId = it.getInt("ARG_CATEGORY_ID")
+            categoryName = it.getString("ARG_CATEGORY_NAME")
+            categoryImageUrl = it.getString("ARG_CATEGORY_IMAGE_URL")
+        }
+
         tv.text = categoryName
 
-        categoryId = requireArguments().getInt("ARG_CATEGORY_ID")
-        categoryName = requireArguments().getString("ARG_CATEGORY_NAME")
-        categoryImageUrl = requireArguments().getString("ARG_CATEGORY_IMAGE_URL")
     }
 
 }

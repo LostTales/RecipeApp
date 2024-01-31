@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import ru.shypitsa.recipeapp.databinding.ItemCategoryBinding
 
@@ -59,6 +60,10 @@ class CategoriesListAdapter(
         holder.cvCategoryItem.setOnClickListener {
             itemClickListener?.onItemClick(dataSet[position].id)
         }
+    }
+
+    fun AppCompatActivity.getString(name: String): String {
+        return resources.getString(resources.getIdentifier(name, "string", packageName))
     }
 
 }
