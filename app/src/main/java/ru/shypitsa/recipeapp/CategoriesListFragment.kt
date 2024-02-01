@@ -44,8 +44,9 @@ class CategoriesListFragment : Fragment() {
     }
 
     fun openRecipesByCategoryId(categoryId: Int) {
-        val categoryName = STUB.getCategories().filter { it.id == categoryId }.map { it.title }[0]
-        val categoryImageUrl = STUB.getCategories().filter { it.id == categoryId }.map { it.imageUrl }[0]
+        val category = STUB.getCategories().firstOrNull { it.id == categoryId }
+        val categoryName = category?.title
+        val categoryImageUrl = category?.imageUrl
         val bundle = bundleOf(
             "ARG_CATEGORY_ID" to categoryId,
             "ARG_CATEGORY_NAME" to categoryName,

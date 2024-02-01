@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import ru.shypitsa.recipeapp.databinding.ItemCategoryBinding
 
@@ -30,7 +29,6 @@ class CategoriesListAdapter(
         val tvCategoryName = binding.tvItemCategoryName
         val tvCategoryDescription = binding.tvItemCategoryDescription
         val ivCategoryImage = binding.ivItemCategoryImage
-        val contentDescription = binding.ivItemCategoryImage
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryHolder {
@@ -46,8 +44,9 @@ class CategoriesListAdapter(
     override fun onBindViewHolder(holder: CategoryHolder, position: Int) {
         holder.tvCategoryName.text = dataSet[position].title
         holder.tvCategoryDescription.text = dataSet[position].description
-        holder.contentDescription.contentDescription =
-            START_OF_TEXT_FOR_CARD_CATEGORY_CONTENT_DESCRIPTION + dataSet[position].title
+        val startString =
+            fragment.resources.getString(R.string.start_of_text_for_card_category_content_description)
+        holder.ivCategoryImage.contentDescription = "$startString ${dataSet[position].title}"
 
         try {
             val inputStream = fragment.context?.assets?.open(dataSet[position].imageUrl)
@@ -62,11 +61,4 @@ class CategoriesListAdapter(
         }
     }
 
-    fun AppCompatActivity.getString(name: String): String {
-        return resources.getString(resources.getIdentifier(name, "string", packageName))
-    }
-
 }
-
-const val START_OF_TEXT_FOR_CARD_CATEGORY_CONTENT_DESCRIPTION =
-    "Изображение для карточки категории "
