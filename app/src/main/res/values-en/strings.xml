@@ -7,4 +7,5 @@
     <string name="item_image_in_the_categories_section">item image in the categories section</string>
     <string name="recipe_header_picture">recipe header picture</string>
     <string name="favorites_section_header_image">favorites section header image</string>
+    <string name="start_of_text_for_card_category_content_description">image for category card</string>
 </resources>

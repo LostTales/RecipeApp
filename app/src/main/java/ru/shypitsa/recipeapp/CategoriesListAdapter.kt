@@ -16,7 +16,7 @@ class CategoriesListAdapter(
     private var itemClickListener: OnItemClickListener? = null
 
     interface OnItemClickListener {
-        fun onItemClick()
+        fun onItemClick(categoryId: Int)
     }
 
     fun setOnItemClickListener(listener: OnItemClickListener) {
@@ -29,7 +29,6 @@ class CategoriesListAdapter(
         val tvCategoryName = binding.tvItemCategoryName
         val tvCategoryDescription = binding.tvItemCategoryDescription
         val ivCategoryImage = binding.ivItemCategoryImage
-        val contentDescription = binding.ivItemCategoryImage
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryHolder {
@@ -45,7 +44,9 @@ class CategoriesListAdapter(
     override fun onBindViewHolder(holder: CategoryHolder, position: Int) {
         holder.tvCategoryName.text = dataSet[position].title
         holder.tvCategoryDescription.text = dataSet[position].description
-        holder.contentDescription.contentDescription = dataSet[position].title
+        val startString =
+            fragment.resources.getString(R.string.start_of_text_for_card_category_content_description)
+        holder.ivCategoryImage.contentDescription = "$startString ${dataSet[position].title}"
 
         try {
             val inputStream = fragment.context?.assets?.open(dataSet[position].imageUrl)
@@ -56,7 +57,7 @@ class CategoriesListAdapter(
         }
 
         holder.cvCategoryItem.setOnClickListener {
-            itemClickListener?.onItemClick()
+            itemClickListener?.onItemClick(dataSet[position].id)
         }
     }
 

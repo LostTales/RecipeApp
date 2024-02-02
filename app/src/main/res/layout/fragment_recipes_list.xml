@@ -23,7 +23,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/burger_mushrooms" />
+            tools:src="@drawable/burger" />
 
         <TextView
             android:id="@+id/tvTitleRecipes"
@@ -35,7 +35,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="бургер с грибами и сыром" />
+            tools:text="бургеры" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
