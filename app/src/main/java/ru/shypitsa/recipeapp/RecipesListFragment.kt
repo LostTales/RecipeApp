@@ -6,7 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
+import androidx.recyclerview.widget.RecyclerView
 import ru.shypitsa.recipeapp.databinding.FragmentRecipesListBinding
 
 class RecipesListFragment : Fragment() {
@@ -38,6 +42,39 @@ class RecipesListFragment : Fragment() {
 
         tv.text = categoryName
 
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initRecycler()
+    }
+
+    private fun initRecycler() {
+        val recipesListAdapter = RecipesListAdapter(STUB.getRecipesByCategoryId(0), this) //
+        val recyclerView: RecyclerView = binding.rvRecipes
+        recyclerView.adapter = recipesListAdapter
+        recipesListAdapter.setOnItemClickListener(object :
+            RecipesListAdapter.OnItemClickListener {
+            override fun onItemClick(recipeId: Int) {
+                openRecipeByRecipeId(recipeId)
+            }
+        })
+    }
+
+    private fun openRecipeByRecipeId(recipeId: Int) {
+        val recipe = STUB.getRecipesByCategoryId(recipeId).firstOrNull { it.id == recipeId }
+        val recipeName = recipe?.title
+        val recipeImage = recipe?.imageUrl
+        val bundle = bundleOf(
+            "ARG_RECIPE_ID" to recipeId,
+            "ARG_RECIPE_NAME" to recipeName,
+            "ARG_RECIPE_IMAGE_URL" to recipeImage
+        )
+        parentFragmentManager.commit {
+            replace<RecipeFragment>(R.id.mainContainer)
+            setReorderingAllowed(true)
+            addToBackStack(null)
+        }
     }
 
 }

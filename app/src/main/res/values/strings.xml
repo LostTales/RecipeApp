@@ -9,4 +9,6 @@
     <string name="recipe_header_picture">картинка заголовка рецепта</string>
     <string name="favorites_section_header_image">картинка заголовка раздела избранное</string>
     <string name="start_of_text_for_card_category_content_description">изображение для карточки категории</string>
+    <string name="start_of_text_for_card_recipe_content_description">изображение для карточки рецепта</string>
+
 </resources>

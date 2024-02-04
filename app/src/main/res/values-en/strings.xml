@@ -8,4 +8,5 @@
     <string name="recipe_header_picture">recipe header picture</string>
     <string name="favorites_section_header_image">favorites section header image</string>
     <string name="start_of_text_for_card_category_content_description">image for category card</string>
+    <string name="start_of_text_for_card_recipe_content_description">image for recipe card</string>
 </resources>
