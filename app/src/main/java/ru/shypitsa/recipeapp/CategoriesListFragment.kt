@@ -32,7 +32,7 @@ class CategoriesListFragment : Fragment() {
     }
 
     private fun initRecycler() {
-        val categoriesListAdapter = CategoriesListAdapter(STUB.getCategories(), this)
+        val categoriesListAdapter = CategoriesListAdapter(STUB.getCategories())
         val recyclerView: RecyclerView = binding.rvCategories
         recyclerView.adapter = categoriesListAdapter
         categoriesListAdapter.setOnItemClickListener(object :

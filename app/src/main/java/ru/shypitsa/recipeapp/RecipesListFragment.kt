@@ -1,6 +1,8 @@
 package ru.shypitsa.recipeapp
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,7 +32,15 @@ class RecipesListFragment : Fragment() {
     ): View {
         _binding = FragmentRecipesListBinding.inflate(layoutInflater, container, false)
         return binding.root
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initRecycler()
+        getHeaderOfRecipesList()
+    }
+
+    private fun getHeaderOfRecipesList() {
         val tv: TextView = binding.tvTitleRecipes
         val iv: ImageView = binding.ivTitleRecipes
 
@@ -42,15 +52,19 @@ class RecipesListFragment : Fragment() {
 
         tv.text = categoryName
 
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initRecycler()
+        try {
+            val inputStream = context?.assets?.open(categoryImageUrl.toString())
+            val drawable = Drawable.createFromStream(inputStream, null)
+            iv.setImageDrawable(drawable)
+        } catch (e: Exception) {
+            Log.e("error", e.printStackTrace().toString())
+        }
     }
 
     private fun initRecycler() {
-        val recipesListAdapter = RecipesListAdapter(STUB.getRecipesByCategoryId(0), this) //
+        arguments?.let { categoryId = it.getInt("ARG_CATEGORY_ID") }
+        val recipesListAdapter =
+            RecipesListAdapter(STUB.getRecipesByCategoryId(categoryId ?: 0))
         val recyclerView: RecyclerView = binding.rvRecipes
         recyclerView.adapter = recipesListAdapter
         recipesListAdapter.setOnItemClickListener(object :

@@ -10,7 +10,6 @@ import ru.shypitsa.recipeapp.databinding.ItemCategoryBinding
 
 class CategoriesListAdapter(
     private val dataSet: List<Category>,
-    private val fragment: CategoriesListFragment,
 ) : RecyclerView.Adapter<CategoriesListAdapter.CategoryHolder>() {
 
     private var itemClickListener: OnItemClickListener? = null
@@ -44,12 +43,15 @@ class CategoriesListAdapter(
     override fun onBindViewHolder(holder: CategoryHolder, position: Int) {
         holder.tvCategoryName.text = dataSet[position].title
         holder.tvCategoryDescription.text = dataSet[position].description
-        val startString =
-            fragment.resources.getString(R.string.start_of_text_for_card_category_content_description)
-        holder.ivCategoryImage.contentDescription = "$startString ${dataSet[position].title}"
+        holder.ivCategoryImage.contentDescription =
+            "${
+                holder.itemView.resources.getString(
+                    R.string.start_of_text_for_card_category_content_description
+                )
+            } ${dataSet[position].title}"
 
         try {
-            val inputStream = fragment.context?.assets?.open(dataSet[position].imageUrl)
+            val inputStream = holder.itemView.context?.assets?.open(dataSet[position].imageUrl)
             val drawable = Drawable.createFromStream(inputStream, null)
             holder.ivCategoryImage.setImageDrawable(drawable)
         } catch (e: Exception) {

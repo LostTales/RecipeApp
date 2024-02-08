@@ -10,7 +10,6 @@ import ru.shypitsa.recipeapp.databinding.ItemRecipeBinding
 
 class RecipesListAdapter(
     private val dataSet: List<Recipe>,
-    private val fragment: RecipesListFragment,
 ) : RecyclerView.Adapter<RecipesListAdapter.RecipeHolder>() {
 
     private var itemClickListener: OnItemClickListener? = null
@@ -44,13 +43,13 @@ class RecipesListAdapter(
         holder.tvRecipeName.text = dataSet[position].title
         holder.ivRecipeImage.contentDescription =
             "${
-                fragment.resources.getString(
+                holder.itemView.resources.getString(
                     R.string.start_of_text_for_card_recipe_content_description
                 )
             } ${dataSet[position].title}"
 
         try {
-            val inputStream = fragment.context?.assets?.open(dataSet[position].imageUrl)
+            val inputStream = holder.itemView.context?.assets?.open(dataSet[position].imageUrl)
             val drawable = Drawable.createFromStream(inputStream, null)
             holder.ivRecipeImage.setImageDrawable(drawable)
         } catch (e: Exception) {
