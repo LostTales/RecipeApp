@@ -58,4 +58,8 @@
         <item name="spanCount">2</item>
     </style>
 
+    <style name="StyleRecipeRecyclerView" parent="StyleRecyclerView">
+        <item name="layoutManager">androidx.recyclerview.widget.LinearLayoutManager</item>
+    </style>
+
 </resources>
