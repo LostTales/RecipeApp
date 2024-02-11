@@ -48,9 +48,9 @@ class CategoriesListFragment : Fragment() {
         val categoryName = category?.title
         val categoryImageUrl = category?.imageUrl
         val bundle = bundleOf(
-            "ARG_CATEGORY_ID" to categoryId,
-            "ARG_CATEGORY_NAME" to categoryName,
-            "ARG_CATEGORY_IMAGE_URL" to categoryImageUrl
+            KEY_IN_BUNDLE_FOR_ARG_CATEGORY_ID to categoryId,
+            KEY_IN_BUNDLE_FOR_ARG_CATEGORY_NAME to categoryName,
+            KEY_IN_BUNDLE_FOR_ARG_CATEGORY_IMAGE_URL to categoryImageUrl
         )
         parentFragmentManager.commit {
             replace<RecipesListFragment>(R.id.mainContainer, args = bundle)

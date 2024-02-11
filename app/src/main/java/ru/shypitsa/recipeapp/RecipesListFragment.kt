@@ -45,9 +45,9 @@ class RecipesListFragment : Fragment() {
         val iv: ImageView = binding.ivTitleRecipes
 
         arguments?.let {
-            categoryId = it.getInt("ARG_CATEGORY_ID")
-            categoryName = it.getString("ARG_CATEGORY_NAME")
-            categoryImageUrl = it.getString("ARG_CATEGORY_IMAGE_URL")
+            categoryId = it.getInt(KEY_IN_BUNDLE_FOR_ARG_CATEGORY_ID)
+            categoryName = it.getString(KEY_IN_BUNDLE_FOR_ARG_CATEGORY_NAME)
+            categoryImageUrl = it.getString(KEY_IN_BUNDLE_FOR_ARG_CATEGORY_IMAGE_URL)
         }
 
         tv.text = categoryName
@@ -62,7 +62,7 @@ class RecipesListFragment : Fragment() {
     }
 
     private fun initRecycler() {
-        arguments?.let { categoryId = it.getInt("ARG_CATEGORY_ID") }
+        arguments?.let { categoryId = it.getInt(KEY_IN_BUNDLE_FOR_ARG_CATEGORY_ID) }
         val recipesListAdapter =
             RecipesListAdapter(STUB.getRecipesByCategoryId(categoryId ?: 0))
         val recyclerView: RecyclerView = binding.rvRecipes
@@ -76,16 +76,17 @@ class RecipesListFragment : Fragment() {
     }
 
     private fun openRecipeByRecipeId(recipeId: Int) {
-        val recipe = STUB.getRecipesByCategoryId(recipeId).firstOrNull { it.id == recipeId }
+        val recipe = STUB.getRecipeById(recipeId)
         val recipeName = recipe?.title
         val recipeImage = recipe?.imageUrl
         val bundle = bundleOf(
-            "ARG_RECIPE_ID" to recipeId,
-            "ARG_RECIPE_NAME" to recipeName,
-            "ARG_RECIPE_IMAGE_URL" to recipeImage
+            KEY_IN_BUNDLE_FOR_ARG_RECIPE_ID to recipeId,
+            KEY_IN_BUNDLE_FOR_ARG_RECIPE_NAME to recipeName,
+            KEY_IN_BUNDLE_FOR_ARG_RECIPE_IMAGE_URL to recipeImage
         )
+        bundle.putParcelable(KEY_IN_BUNDLE_FOR_ARG_RECIPE, recipe)
         parentFragmentManager.commit {
-            replace<RecipeFragment>(R.id.mainContainer)
+            replace<RecipeFragment>(R.id.mainContainer, args = bundle)
             setReorderingAllowed(true)
             addToBackStack(null)
         }
