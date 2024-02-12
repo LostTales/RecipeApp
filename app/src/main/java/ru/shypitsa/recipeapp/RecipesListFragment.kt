@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
@@ -77,14 +76,7 @@ class RecipesListFragment : Fragment() {
 
     private fun openRecipeByRecipeId(recipeId: Int) {
         val recipe = STUB.getRecipeById(recipeId)
-        val recipeName = recipe?.title
-        val recipeImage = recipe?.imageUrl
-        val bundle = bundleOf(
-            KEY_IN_BUNDLE_FOR_ARG_RECIPE_ID to recipeId,
-            KEY_IN_BUNDLE_FOR_ARG_RECIPE_NAME to recipeName,
-            KEY_IN_BUNDLE_FOR_ARG_RECIPE_IMAGE_URL to recipeImage
-        )
-        bundle.putParcelable(KEY_IN_BUNDLE_FOR_ARG_RECIPE, recipe)
+        val bundle = Bundle().apply { putParcelable(KEY_IN_BUNDLE_FOR_ARG_RECIPE, recipe) }
         parentFragmentManager.commit {
             replace<RecipeFragment>(R.id.mainContainer, args = bundle)
             setReorderingAllowed(true)
