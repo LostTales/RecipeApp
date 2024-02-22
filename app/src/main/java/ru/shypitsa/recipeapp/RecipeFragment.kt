@@ -10,7 +10,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
 import ru.shypitsa.recipeapp.databinding.FragmentRecipeBinding
 
 class RecipeFragment : Fragment() {
@@ -34,10 +37,33 @@ class RecipeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getHeaderOfRecipe()
+        initUI()
+        initRecycler()
     }
 
-    private fun getHeaderOfRecipe() {
+    private fun initRecycler() {
+        arguments?.let { recipeId = it.parcelable<Recipe>(KEY_IN_BUNDLE_FOR_ARG_RECIPE)?.id }
+
+        val dividerItemDecoration = DividerItemDecoration(context, RecyclerView.VERTICAL)
+        ResourcesCompat.getDrawable(resources, R.drawable.divider, null)?.let {
+            dividerItemDecoration.setDrawable(it)
+        }
+
+        val ingredientsAdapter =
+            recipeId?.let { STUB.getRecipeById(it)?.ingredients }?.let { IngredientsAdapter(it) }
+        val recyclerViewIngredients: RecyclerView = binding.rvIngredients
+        recyclerViewIngredients.adapter = ingredientsAdapter
+        recyclerViewIngredients.addItemDecoration(dividerItemDecoration)
+
+
+        val methodAdapter =
+            recipeId?.let { STUB.getRecipeById(it)?.method }?.let { MethodAdapter(it) }
+        val recyclerViewMethod: RecyclerView = binding.rvMethod
+        recyclerViewMethod.adapter = methodAdapter
+        recyclerViewMethod.addItemDecoration(dividerItemDecoration)
+    }
+
+    private fun initUI() {
         val tv: TextView = binding.tvTitleRecipe
         val iv: ImageView = binding.ivTitleRecipe
         arguments?.let {
