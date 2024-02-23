@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="@dimen/linear_layout_btn_margin_bottom_and_item_ingredients_method_dim">
 
     <TextView
         android:id="@+id/tvIngredientsDescription"
-        style="@style/StyleIngredients"
-        android:layout_width="175dp"
+        style="@style/StyleIngredientsDescription"
         android:layout_height="wrap_content"
         tools:text="Булочка для гамбургера" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayoutQuantityAndUnitOfMeasure"
-        android:layout_width="match_parent"
+        style="@style/StyleConstraintLayoutQuantityAndUnitOfMeasure"
         android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/tvUnitOfMeasure"
-            style="@style/StyleIngredients"
+            style="@style/StyleUnitOfMeasure"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"

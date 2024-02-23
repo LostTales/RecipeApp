@@ -1,6 +1,5 @@
 package ru.shypitsa.recipeapp
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,11 +26,10 @@ class IngredientsAdapter(
         return dataSet.size
     }
 
-    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: IngredientsHolder, position: Int) {
         holder.tvIngredientsDescription.text = dataSet[position].description
         holder.tvUnitOfMeasure.text = dataSet[position].unitOfMeasure
-        holder.tvQuantity.text = "${dataSet[position].quantity} "
+        holder.tvQuantity.text = dataSet[position].quantity
     }
 
 }

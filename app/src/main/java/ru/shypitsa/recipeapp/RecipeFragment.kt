@@ -9,7 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -64,14 +63,16 @@ class RecipeFragment : Fragment() {
     }
 
     private fun initUI() {
-        val tv: TextView = binding.tvTitleRecipe
         val iv: ImageView = binding.ivTitleRecipe
         arguments?.let {
             recipeName = it.parcelable<Recipe>(KEY_IN_BUNDLE_FOR_ARG_RECIPE)?.title
-            recipeId = it.parcelable<Recipe>(KEY_IN_BUNDLE_FOR_ARG_RECIPE)?.id
             recipeImageUrl = it.parcelable<Recipe>(KEY_IN_BUNDLE_FOR_ARG_RECIPE)?.imageUrl
         }
-        tv.text = recipeName
+        binding.tvTitleRecipe.text = recipeName
+        iv.contentDescription =
+            "${
+                resources.getString(R.string.start_of_text_for_card_recipe_content_description)
+            } $recipeName"
 
         try {
             val inputStream = context?.assets?.open(recipeImageUrl.toString())
