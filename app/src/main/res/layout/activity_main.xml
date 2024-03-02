@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/linear_layout_btn_margin_horizontal_dim"
-        android:layout_marginBottom="@dimen/linear_layout_btn_margin_bottom_dim"
+        android:layout_marginBottom="@dimen/linear_layout_btn_margin_bottom_and_item_ingredients_method_dim"
         android:gravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

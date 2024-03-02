@@ -8,5 +8,7 @@
     <color name="btn_favorites_basic_color">#E13E3E</color>
     <color name="btn_favorites_clicking_color">#E35B5B</color>
     <color name="title_text_color">#5F3678</color>
-    <color name="tv_item_category_description">#666666</color>
+    <color name="tv_item_category_description_and_ingredients_color">#666666</color>
+    <color name="tv_recipe_ingredients_portions_color">#626466</color>
+    <color name="rv_divider_color">#F5F5F5</color>
 </resources>
